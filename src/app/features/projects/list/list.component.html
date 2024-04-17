@@ -1,3 +1,11 @@
-<div class="h-auto m-4 bg-indigo-300">
-    <p>project list works!</p>
+<div class="h-auto m-4 p-4 flex flex-row gap-4">
+    @for (project of dataProjects; track project) {
+        <app-item-list [project]="project" />
+    }
+    
+    <app-card-add (eventClick)="setAction($event)" />
 </div>
+
+@if (action === "CREATE") {
+    <app-form-projects />
+}
